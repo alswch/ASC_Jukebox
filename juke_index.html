@@ -8,6 +8,30 @@
   <title>Document</title>
 </head>
 <body>
+  <form class="" action="index.html" method="post">
+    Title: <input type="text" name="title" id="title">
+    Artist: <input type="text" name="title" id="artist">
+    <input type="button" id="findBtn" type="find" name="find" value="Find">
+  </form>
+  <div id="jukebox">
+
+    <audio id="audioPlayer">
+      <source id="source" src="" type="audio/mp3">
+    </audio>
+
+    <h2>alswch's jukebox</h2>
+
+<!-- ======= control buttons ======= -->
+    <div id="musiccontrol">
+
+      <div id="backbtn" class="buttons" type="back" name="back"></div>
+      <div id="playbtn" class="buttons" type="play" name="play"></div>
+      <div id="pausebtn" class="buttons" type="pause" name="pause"></div>
+      <div id="nextbtn" class="buttons" type="next" name="next"></div>
+
+    </div>
+
+  </div>
 
   <script type="text/javascript" src="juke_script.js">
 

@@ -1,0 +1,23 @@
+#jukebox {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+}
+.buttons{
+  width: 50px;
+  height: 45px;
+  cursor: pointer;
+  float: left;
+}
+#backbtn{
+  background-image: url(images/backbutton.png);
+}
+#playbtn{
+  background-image: url(images/playbutton.png);
+}
+#pausebtn{
+  background-image: url(images/pausebutton.png);
+}
+#nextbtn{
+  background-image: url(images/nextbutton.png);
+}
