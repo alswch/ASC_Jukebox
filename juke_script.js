@@ -3,8 +3,9 @@ var jukebox = {
 
   initialize: function() {
     this.activateSongModal();
+    this.audioPlayer();
   },
-
+// ======= save button activation =======
   activateSongModal: function() {
     // console.log("==activateSongModal==");
     var self = this;    //this is the key code
@@ -33,6 +34,28 @@ var jukebox = {
     this.title = title;
     this.artist = artist;
     this.url = url;
+  },
+
+  // ====== Audio player =======
+  audioPlayer: function() {
+    // console.log("audioPlayer");
+    var self = this;
+    // console.log("this:", this);
+    var audioPlayer = document.getElementById('audioPlayer');
+    // ====== PLAY BUTTON ACTION ======
+    document.getElementById('playBtn').addEventListener("click", function(){
+      console.log("==play==");
+      audioPlayer.play();
+    });
+    // ====== PAUSE BUTTON ACTION ======
+    document.getElementById('pauseBtn').addEventListener("click", function(){
+      console.log("==pause==");
+      audioPlayer.pause();
+    });
   }
 }
 jukebox.initialize();
+
+// var backBtn = document.getElementById('backBtn');
+// var pauseBtn = document.getElementById('pauseBtn');
+// var nextBtn = document.getElementById('nextBtn');
