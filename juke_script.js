@@ -1,26 +1,28 @@
 var jukebox = {
-  musicLibrary: [],
+  musicLibrary: [
+    {title:"New Face", artist:"PSY", url:"music/New Face.mp3"},
+    {title:"Through The Night", artist:"IU", url:"music/ThroughTheNight.mp3"},
+    {title:"Wild Flower", artist:"Park HyoShin", url:"music/WildFlower.mp3"}
+  ],
 
   initialize: function() {
-    this.activateSongModal();
+    this.activateUI();
     this.audioPlayer();
   },
-// ======= save button activation =======
-  activateSongModal: function() {
+  // ======= SAVE BUTTON activation
+activateUI: function() {
+  var self = this;
+  var saveBtn = document.getElementById("saveBtn");
+  saveBtn.addEventListener("click", function(){
+    self.saveNewSong();
+  });
+},
+// ======= ADD NEW SONG =======
+  saveNewSong: function() {
     // console.log("==activateSongModal==");
     var self = this;    //this is the key code
     // console.log("this:", this);
     // console.log("self:", self);
-    document.getElementById("saveBtn").addEventListener("click", function(){
-      // console.log("-- click:saveBtn --");
-      // console.log("this:", this);
-      // console.log("self:", self);
-      self.savedMusicInfo();
-    })
-  },
-
-  savedMusicInfo: function() {
-    // console.log("showModal");
     var title = document.getElementById('title').value;
     var artist = document.getElementById('artist').value;
     var url = document.getElementById('url').value;
@@ -28,6 +30,12 @@ var jukebox = {
     console.log(nextMusic);
     jukebox.musicLibrary.push(nextMusic);
     console.log(jukebox.musicLibrary);
+    // console.log("-- click:saveBtn --");
+    // console.log("this:", this);
+    // console.log("self:", self);
+    // self.savedMusicInfo();
+    this.createPlaylist();
+    this.activatePlaylist();
   },
 // ====== Music constructor ======
   Music: function(title, artist, url) {
@@ -35,8 +43,36 @@ var jukebox = {
     this.artist = artist;
     this.url = url;
   },
+// ====== DISPLAY MUSIC PLAYLIST =======
+  createPlaylist: function() {
+    console.log("==createPlaylist==");
+    var nextListItem = "";
+    for (var i = 0; i < jukebox.musicLibrary.length; i++) {
+      nextMusic = jukebox.musicLibrary[i];
+      nextMusicTitle = nextMusic.title;
+      nextListItem += "<li id='title_" + i + "'>" + nextMusicTitle + "</li>"
+    };
+    console.log(nextListItem);
+    document.getElementById('songList').innerHTML = nextListItem;
+  },
+// ====== CREATE CLICKABLE LINK FOR PLAYLIST ========
+  activatePlaylist: function() {
+  console.log("==activatePlaylist==");
+  var listArray = document.getElementById('songList').getElementsByTagName('li');
+  console.log(listArray);
+  for (var i = 0; i < listArray.length; i++) {
+    nextListItem = listArray[i];
+    console.log(nextListItem);
+    nextListItem.addEventListener("click", jukebox.displaySelectedSong);
+  };
+  },
+  // ======= DISPLAY SELECTED SONG INFO ========
+  displaySelectedSong: function() {
+    console.log("==displaySelectedSong==");
+  },
 
-  // ====== Audio player =======
+
+  // ====== AUDIO PLAYER CONTROL=======
   audioPlayer: function() {
     // console.log("audioPlayer");
     var self = this;
