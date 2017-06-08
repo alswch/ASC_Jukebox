@@ -9,7 +9,7 @@ var jukebox = {
     this.activateUI();
     this.audioPlayer();
   },
-  // ======= SAVE BUTTON activation
+  // ======= ACTIVATE SAVE BUTTON =========
 activateUI: function() {
   var self = this;
   var saveBtn = document.getElementById("saveBtn");
@@ -37,7 +37,7 @@ activateUI: function() {
     this.createPlaylist();
     this.activatePlaylist();
   },
-// ====== Music constructor ======
+// ====== MUSIC CONSTRUCTOR ======
   Music: function(title, artist, url) {
     this.title = title;
     this.artist = artist;
@@ -67,8 +67,21 @@ activateUI: function() {
   };
   },
   // ======= DISPLAY SELECTED SONG INFO ========
-  displaySelectedSong: function() {
+  displaySelectedSong: function(event) {
     console.log("==displaySelectedSong==");
+    var titleID = event.currentTarget.id;
+    console.log(event.currentTarget.id);
+    var titleIndex = titleID.indexOf("_") + 1;
+    console.log(titleIndex);
+    var songIndex = titleID.substring(titleIndex);
+    console.log(songIndex);
+    var selectedSong = jukebox.musicLibrary[songIndex];
+    console.log(selectedSong);
+    var songTags = document.getElementById("selectedSong").getElementsByTagName("p");
+    console.log(songTags);
+    songTags[0].innerText = selectedSong.title;
+    songTags[1].innerText = selectedSong.artist;
+    songTags[2].innerText = selectedSong.url;
   },
 
 
