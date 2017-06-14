@@ -1,13 +1,13 @@
 var jukebox = {
-  musicLibrary: [
-    {title:"New Face", artist:"PSY", url:"music/New Face.mp3"},
-    {title:"Through The Night", artist:"IU", url:"music/ThroughTheNight.mp3"},
-    {title:"Wild Flower", artist:"Park HyoShin", url:"music/WildFlower.mp3"}
-  ],
+  musicLibrary: [],
+    // {title:"New Face", artist:"PSY", url:"music/NewFace.mp3"},
+    // {title:"Through The Night", artist:"IU", url:"music/ThroughTheNight.mp3"},
+    // {title:"Wild Flower", artist:"Park HyoShin", url:"music/WildFlower.mp3"}
 
   initialize: function() {
     this.activateUI();
     this.audioPlayer();
+    this.activateQueuedSong();
   },
   // ======= ACTIVATE SAVE BUTTON =========
   activateUI: function() {
@@ -67,8 +67,15 @@ var jukebox = {
     audioPlayer.src = selectedSong.url;
     audioPlayer.play();
   },
-
-  // ====== AUDIO PLAYER CONTROL=======
+  // ====== ACTIVATE QUEUED SONG ======
+  activateQueuedSong: function() {
+    console.log("==activateQueuedSong==");
+    $('#playBtn').on('click', function(){
+    			$("#audioPlayer").attr("src","music/NewFace.mp3").trigger('play');
+    			// $('#songImage').css('backgroundImage','url(images/nujabes.jpg)');
+    		})
+  },
+  // ====== AUDIO PLAYER CONTROL =======
   audioPlayer: function() {
     var self = this;
     var audioPlayer = document.getElementById('audioPlayer');
