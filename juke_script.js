@@ -72,7 +72,7 @@ var jukebox = {
     console.log("==activateQueuedSong==");
     $('#playBtn').on('click', function(){
     			$("#audioPlayer").attr("src","music/NewFace.mp3").trigger('play');
-    			// $('#songImage').css('backgroundImage','url(images/nujabes.jpg)');
+    			// $('#songImage').css('backgroundImage','url(.jpg)'); // image codes
     		})
   },
   // ====== AUDIO PLAYER CONTROL =======

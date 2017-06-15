@@ -1,6 +1,6 @@
 #jukebox {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 70px;
   border: 1px solid black;
 }
 .buttons{
@@ -8,6 +8,13 @@
   height: 45px;
   cursor: pointer;
   float: left;
+}
+#artwork {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  margin-top: 10px;
 }
 #backBtn{
   background-image: url(images/backbutton.png);
