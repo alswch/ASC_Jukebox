@@ -1,7 +1,12 @@
 #jukebox {
-  width: 200px;
-  height: 70px;
+  width: 300px;
+  height: 300px;
+  /*border: 1px solid black;*/
+}
+#musiccontrol {
   border: 1px solid black;
+  width: 200px;
+  height: 50px;
 }
 .buttons{
   width: 50px;
@@ -14,7 +19,8 @@
   width: 200px;
   height: 200px;
   border: 1px solid black;
-  margin-top: 10px;
+  margin-top: 30px;
+  background-size: contain;
 }
 #backBtn{
   background-image: url(images/backbutton.png);
@@ -27,4 +33,7 @@
 }
 #nextBtn{
   background-image: url(images/nextbutton.png);
+}
+#selectedSong {
+  position: absolute;
 }

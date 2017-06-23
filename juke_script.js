@@ -63,16 +63,19 @@ var jukebox = {
     songTags[0].innerText = selectedSong.title;
     songTags[1].innerText = selectedSong.artist;
     songTags[2].innerText = selectedSong.url;
+    songTags[3].innerText = selectedSong.artwork;
     var audioPlayer = document.getElementById('audioPlayer');
     audioPlayer.src = selectedSong.url;
     audioPlayer.play();
+    var artwork = document.getElementById("artwork");
+    var artStr = "url('" + selectedSong.image + "')"
   },
   // ====== ACTIVATE QUEUED SONG ======
   activateQueuedSong: function() {
     console.log("==activateQueuedSong==");
     $('#playBtn').on('click', function(){
     			$("#audioPlayer").attr("src","music/NewFace.mp3").trigger('play');
-    			// $('#songImage').css('backgroundImage','url(.jpg)'); // image codes
+    			$('#artwork').css('backgroundImage','url(images/newface.jpg)'); // image codes
     		})
   },
   // ====== AUDIO PLAYER CONTROL =======
